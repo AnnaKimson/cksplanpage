@@ -1,0 +1,173 @@
+/* ========== БАЗОВЫЕ СТИЛИ ========== */
+body {
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #2a2a2a;
+  background: #f7f7f7;
+}
+
+/* Заголовки */
+h1 {
+  margin: 0.2em 0;
+  font-family: 'Times New Roman', serif;
+  font-size: 2.5em;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+.subtitle {
+  margin-bottom: 0.5em;
+  font-size: 1.2em;
+  color: #542427;
+}
+
+/* Вводный текст */
+.intro {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+/* ========== КАРТОЧКИ (BUTTON-BLOCK) ========== */
+.rounded-block,
+.button-block,
+.sidebar {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 30px; /* добавили отступ снизу у всех блоков кнопок */
+}
+
+/* Особый стиль для шапки */
+.rounded-block {
+  background: linear-gradient(135deg, #fde7e9, #fff);
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+/* Hover-эффект для всех карточек */
+.button-block:hover,
+.sidebar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Заголовок секций */
+.section-title,
+.sidebar-title {
+  margin-bottom: 15px;
+  font-size: 1.4em;
+  color: #542427;
+}
+.section-title { cursor: pointer; }
+.sidebar-title { text-align: center; }
+
+/* Кнопки и группы кнопок */
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+/* Общий стиль для кнопок */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  padding: 12px 20px;
+  background: #72181d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,0.2);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.btn:hover {
+  background: #8c2624;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+.btn:active {
+  background: #542427;
+  transform: translateY(0);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Иконка в кнопке */
+.icon {
+  margin-right: 8px;
+  font-size: 1.1em;
+}
+
+/* Скрытый блок */
+.hidden {
+  display: none;
+}
+
+/* ========== СТРАНИЦА: layout main + sidebar ========== */
+.main-content {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Sidebar фиксированной ширины */
+.sidebar {
+  width: 260px;
+}
+
+/* Отображение отсутствующего документа */
+.no-doc {
+  background: #e0e0e0;        /* светло-серый фон */
+  color: #555;               /* текст чуть темнее */
+  cursor: default;           /* не кликабельно */
+  box-shadow: none;          /* без тени */
+}
+
+.no-doc .icon {
+  font-size: 1.1em;
+  margin-right: 8px;
+}
+
+/* Убираем hover/active эффекты для .no-doc */
+.no-doc:hover,
+.no-doc:active {
+  background: #e0e0e0;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ========== АДАПТИВ ========== */
+@media (max-width: 900px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sidebar {
+    width: 100%;
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+  /* Каждая колонка (секции и сайдбар) по 80% ширины экрана */
+  .main-sections,
+  .sidebar {
+    flex: 0 0 auto;
+    width: 80vw;
+    margin-right: 10px;
+  }
+}
