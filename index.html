@@ -4,6 +4,14 @@
   <meta charset="UTF-8" />
   <title>Главная страница</title>
   <link rel="stylesheet" href="style.css">
+  <script>
+        // Функция для обновления страницы
+        function updatePage() {
+            location.reload(); // Обновляем страницу
+        }
+        // Устанавливаем интервал обновления на 1 час (3600000 мс)
+        setInterval(updatePage, 3600000);
+    </script>
 </head>
 <body>
   <!-- HEADER: заголовок страницы и вводный текст -->
@@ -231,7 +239,6 @@
       <div class="btn-group sidebar-group">
         <a href="https://disk.yandex.ru/i/MqMzmoryKML2lQ" target="_blank" class="btn sidebar-btn">🔧 Предложения День оленевода</a>
       </div>
-
     </aside>
   </div>
 
