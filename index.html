@@ -4,53 +4,99 @@
   <meta charset="UTF-8" />
   <title>Главная страница</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Дополнительные новогодние стили */
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+    
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+    
+    .snowflake {
+      position: fixed;
+      font-size: 20px;
+      color: white;
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 9999;
+    }
+  </style>
   <script>
-        // Функция для обновления страницы
-        function updatePage() {
-            location.reload(); // Обновляем страницу
-        }
-        // Устанавливаем интервал обновления на 1 час (3600000 мс)
-        setInterval(updatePage, 3600000);
-    </script>
+    // Функция для обновления страницы
+    function updatePage() {
+        location.reload(); // Обновляем страницу
+    }
+    // Устанавливаем интервал обновления на 1 час (3600000 мс)
+    setInterval(updatePage, 3600000);
+    
+    // Функция для создания снежинок
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.className = 'snowflake';
+      snowflake.innerHTML = '❄';
+      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.top = '-50px';
+      snowflake.style.fontSize = Math.random() * 20 + 10 + 'px';
+      snowflake.style.opacity = Math.random() * 0.5 + 0.3;
+      snowflake.style.animation = `fall ${Math.random() * 3 + 2}s linear infinite`;
+      
+      document.body.appendChild(snowflake);
+      
+      // Удаляем снежинку после анимации
+      setTimeout(() => {
+        snowflake.remove();
+      }, 5000);
+    }
+  </script>
 </head>
 <body>
   <!-- HEADER: заголовок страницы и вводный текст -->
   <header class="rounded-block">
-    <h1>ПЛАНИРОВАНИЕ</h1>
+    <h1>🎄 ПЛАНИРОВАНИЕ 🎄</h1>
     <h2 class="subtitle">МАУК "ЦКС"</h2>
     <p class="intro">
       Уважаемые коллеги, для просмотра необходимого Вам плана нажмите на соответствующую кнопку.
       Документ откроется в новой вкладке в режиме просмотра, редактировать его нельзя, но можно скачать и распечатать.
     </p>
+    <div style="font-size: 24px; margin-top: 10px; opacity: 0.7;">
+      ✨ С наступающим Новым Годом! ✨
+    </div>
   </header>
 
   <!-- Кнопка подачи заявки на корректировку -->
   <section class="button-block">
     <div class="btn-group">
       <a href="https://forms.yandex.ru/u/68889faaeb61460180ca9341" target="_blank" class="btn correction-btn">
-        📝 Подать заявку на корректировку
+        🎁 Подать заявку на корректировку
       </a>
     </div>
   </section>
 
   <!-- MAIN: основное содержимое + sidebar -->
-  <div class="main-content">
+<div class="main-content">
+  <!-- Левая колонка с двумя годами -->
+  <div class="main-column">
     <!-- Секция с выбором квартала -->
     <div class="main-sections bordered-section">
       <section class="button-block">
-        <h3 class="section-title">📅 2025 год</h3>
+        <h3 class="section-title">🎅 2025 год 🎅</h3>
         <div class="btn-group">
           <!-- кнопки-тогглы для каждого квартала -->
-          <button class="btn toggle" data-target="q1">I квартал</button>
-          <button class="btn toggle" data-target="q2">II квартал</button>
-          <button class="btn toggle" data-target="q3">III квартал</button>
-          <button class="btn toggle" data-target="q4">IV квартал</button>
+          <button class="btn toggle" data-target="q1">🎄 I квартал</button>
+          <button class="btn toggle" data-target="q2">❄ II квартал</button>
+          <button class="btn toggle" data-target="q3">✨ III квартал</button>
+          <button class="btn toggle" data-target="q4">🎁 IV квартал</button>
         </div>
       </section>
 
       <!-- Общая структура для каждого квартала одинакова: скрытый по умолчанию блок с кнопками -->
       <section id="q1" class="button-block hidden">
-        <h3 class="section-title">I квартал</h3>
+        <h3 class="section-title">🎄 I квартал</h3>
         <div class="btn-group full-group">
           <a href="https://disk.yandex.ru/i/vB4NvCTNhdzqeQ" target="_blank" class="btn full-quarter-btn">
             📑 Весь квартальный план
@@ -58,19 +104,19 @@
         </div>
         <div class="btn-group month-group">
           <a href="https://disk.yandex.ru/i/C4lX_DWx6raXDg" target="_blank" class="btn">
-            <span class="icon">📄</span> Январь
+            <span class="icon">🎄</span> Январь
           </a>
           <a href="https://disk.yandex.ru/i/uFgLjABc0mjxyw" target="_blank" class="btn">
-            <span class="icon">📄</span> Февраль
+            <span class="icon">❄</span> Февраль
           </a>
           <a href="https://disk.yandex.ru/d/AxbWzGi31KinQg" target="_blank" class="btn">
-            <span class="icon">📄</span> Март
+            <span class="icon">✨</span> Март
           </a>
         </div>
       </section>
 
       <section id="q2" class="button-block hidden">
-        <h3 class="section-title">II квартал</h3>
+        <h3 class="section-title">❄ II квартал</h3>
         <div class="btn-group full-group">
           <a href="https://disk.yandex.ru/i/ulatzehCHPXG_Q" target="_blank" class="btn full-quarter-btn">
             📑 Весь квартальный план
@@ -78,19 +124,19 @@
         </div>
         <div class="btn-group month-group">
           <a href="https://disk.yandex.ru/i/J9N1VOXBkYpNfw" target="_blank" class="btn">
-            <span class="icon">📄</span> Апрель
+            <span class="icon">🌸</span> Апрель
           </a>
           <a href="https://disk.yandex.ru/i/bjK9mVDQBAEBig" target="_blank" class="btn">
-            <span class="icon">📄</span> Май
+            <span class="icon">🌷</span> Май
           </a>
           <a href="https://disk.yandex.ru/i/gUiiClOIY-u5Kw" target="_blank" class="btn">
-            <span class="icon">📄</span> Июнь
+            <span class="icon">☀️</span> Июнь
           </a>
         </div>
       </section>
 
       <section id="q3" class="button-block hidden">
-        <h3 class="section-title">III квартал</h3>
+        <h3 class="section-title">✨ III квартал</h3>
         <div class="btn-group full-group">
           <a href="https://disk.yandex.ru/i/Gd6bMbzhPbaODg" target="_blank" class="btn full-quarter-btn">
             📑 Весь квартальный план
@@ -98,19 +144,19 @@
         </div>
         <div class="btn-group month-group">
           <a href="https://disk.yandex.ru/i/kTbPCttRkQRotA" target="_blank" class="btn">
-            <span class="icon">📄</span> Июль
+            <span class="icon">🌞</span> Июль
           </a>
           <a href="https://disk.yandex.ru/i/Qp6x7IKHIyUiEQ" target="_blank" class="btn">
-            <span class="icon">📄</span> Август
+            <span class="icon">🌻</span> Август
           </a>
           <a href="https://disk.yandex.ru/i/6YQiminPqjofKg" target="_blank" class="btn">
-            <span class="icon">📄</span> Сентябрь
+            <span class="icon">🍂</span> Сентябрь
           </a>          
         </div>
       </section>
 
       <section id="q4" class="button-block hidden">
-        <h3 class="section-title">IV квартал</h3>
+        <h3 class="section-title">🎁 IV квартал</h3>
         <div class="btn-group full-group">
           <a href="https://disk.yandex.ru/i/ON8ivVbcrLK-JQ" target="_blank" class="btn full-quarter-btn">
             📑 Весь квартальный план
@@ -118,129 +164,124 @@
         </div>
         <div class="btn-group month-group">
           <a href="https://disk.yandex.ru/i/K6tTZWJpaLlQVg" target="_blank" class="btn">
-            <span class="icon">📄</span> Октябрь
+            <span class="icon">🎃</span> Октябрь
           </a>  
           <a href="https://disk.yandex.ru/i/p8c1AJhLfemwAw" target="_blank" class="btn">
-            <span class="icon">📄</span> Ноябрь
+            <span class="icon">🍁</span> Ноябрь
           </a> 
           <a href="https://disk.yandex.ru/i/XVgtmRcfFCocmw" target="_blank" class="btn">
-            <span class="icon">📄</span> Декабрь
+            <span class="icon">🎄</span> Декабрь
           </a> 
         </div>
       </section>
     </div>
 
     <!-- Секция с выбором квартала для 2026 года -->
-<div class="main-sections bordered-section">
-  <section class="button-block">
-    <h3 class="section-title">📅 2026 год</h3>
-    <div class="btn-group">
-      <button class="btn toggle" data-target="q5">I квартал</button>
-      <button class="btn toggle" data-target="q6">II квартал</button>
-      <button class="btn toggle" data-target="q7">III квартал</button>
-      <button class="btn toggle" data-target="q8">IV квартал</button>
-    </div>
-  </section>
+    <div class="main-sections bordered-section">
+      <section class="button-block">
+        <h3 class="section-title">🎅 2026 год 🎅</h3>
+        <div class="btn-group">
+          <button class="btn toggle" data-target="q5">🎄 I квартал</button>
+          <button class="btn toggle" data-target="q6">❄ II квартал</button>
+          <button class="btn toggle" data-target="q7">✨ III квартал</button>
+          <button class="btn toggle" data-target="q8">🎁 IV квартал</button>
+        </div>
+      </section>
 
-  <!-- Блоки для кварталов 2026 года -->
-  <section id="q5" class="button-block hidden">
-    <h3 class="section-title">I квартал</h3>
-    <div class="btn-group full-group">
-      <a href="https://disk.yandex.ru/i/mUKrk2vjc9XI7g" target="_blank" class="btn full-quarter-btn">
-        📑 Весь квартальный план
-      </a>
-    </div>
-    <div class="btn-group month-group">
-      <div class="btn no-doc">
-        <span class="icon">❌</span> Январь – документа пока нет
-      </div>
-      <div class="btn no-doc">
-        <span class="icon">❌</span> Февраль – документа пока нет
-      </div>
-      <div class="btn no-doc">
-        <span class="icon">❌</span> Март – документа пока нет
-      </div>
-    </div>
-  </section>
+      <!-- Блоки для кварталов 2026 года -->
+      <section id="q5" class="button-block hidden">
+        <h3 class="section-title">🎄 I квартал</h3>
+        <div class="btn-group full-group">
+          <a href="https://disk.yandex.ru/i/mUKrk2vjc9XI7g" target="_blank" class="btn full-quarter-btn">
+            📑 Весь квартальный план
+          </a>
+        </div>
+        <div class="btn-group month-group">
+          <div class="btn no-doc">
+            <span class="icon">❄</span> Январь – документа пока нет
+          </div>
+          <div class="btn no-doc">
+            <span class="icon">❄</span> Февраль – документа пока нет
+          </div>
+          <div class="btn no-doc">
+            <span class="icon">❄</span> Март – документа пока нет
+          </div>
+        </div>
+      </section>
 
-  <section id="q6" class="button-block hidden">
-    <h3 class="section-title">II квартал</h3>
-    <div class="btn-group full-group">
-      <a href="https://disk.yandex.ru/i/lvLeQwRq4faCWw" target="_blank" class="btn full-quarter-btn">
-        📑 Весь квартальный план
-      </a>
-    </div>
-    <div class="btn-group month-group">
-      <div class="btn no-doc">
-        <span class="icon">❌</span> Апрель – документа пока нет
-      </div>
-      <div class="btn no-doc">
-        <span class="icon">❌</span> Май – документа пока нет
-      </div>
-      <div class="btn no-doc">
-        <span class="icon">❌</span> Июнь – документа пока нет
-      </div>
-    </div>
-  </section>
+      <section id="q6" class="button-block hidden">
+        <h3 class="section-title">❄ II квартал</h3>
+        <div class="btn-group full-group">
+          <a href="https://disk.yandex.ru/i/lvLeQwRq4faCWw" target="_blank" class="btn full-quarter-btn">
+            📑 Весь квартальный план
+          </a>
+        </div>
+        <div class="btn-group month-group">
+          <div class="btn no-doc">
+            <span class="icon">🌸</span> Апрель – документа пока нет
+          </div>
+          <div class="btn no-doc">
+            <span class="icon">🌷</span> Май – документа пока нет
+          </div>
+          <div class="btn no-doc">
+            <span class="icon">☀️</span> Июнь – документа пока нет
+          </div>
+        </div>
+      </section>
 
-  <section id="q7" class="button-block hidden">
-    <h3 class="section-title">III квартал</h3>
-    <div class="btn-group full-group">
-      <a href="https://disk.yandex.ru/i/ObdCK9ZePnjrPQ" target="_blank" class="btn full-quarter-btn">
-        📑 Весь квартальный план
-      </a>
-    </div>
-    <div class="btn-group month-group">
-      <div class="btn no-doc">
-        <span class="icon">❌</span> Июль – документа пока нет
-      </div>
-      <div class="btn no-doc">
-        <span class="icon">❌</span> Август – документа пока нет
-      </div>
-      <div class="btn no-doc">
-        <span class="icon">❌</span> Сентябрь – документа пока нет
-      </div>
-    </div>
-  </section>
+      <section id="q7" class="button-block hidden">
+        <h3 class="section-title">✨ III квартал</h3>
+        <div class="btn-group full-group">
+          <a href="https://disk.yandex.ru/i/ObdCK9ZePnjrPQ" target="_blank" class="btn full-quarter-btn">
+            📑 Весь квартальный план
+          </a>
+        </div>
+        <div class="btn-group month-group">
+          <div class="btn no-doc">
+            <span class="icon">🌞</span> Июль – документа пока нет
+          </div>
+          <div class="btn no-doc">
+            <span class="icon">🌻</span> Август – документа пока нет
+          </div>
+          <div class="btn no-doc">
+            <span class="icon">🍂</span> Сентябрь – документа пока нет
+          </div>
+        </div>
+      </section>
 
-  <section id="q8" class="button-block hidden">
-    <h3 class="section-title">IV квартал</h3>
-    <div class="btn-group full-group">
-      <a href="https://disk.yandex.ru/i/5uLhT_LwMLAf2A" target="_blank" class="btn full-quarter-btn">
-        📑 Весь квартальный план
-      </a>
+      <section id="q8" class="button-block hidden">
+        <h3 class="section-title">🎁 IV квартал</h3>
+        <div class="btn-group full-group">
+          <a href="https://disk.yandex.ru/i/5uLhT_LwMLAf2A" target="_blank" class="btn full-quarter-btn">
+            📑 Весь квартальный план
+          </a>
+        </div>
+        <div class="btn-group month-group">
+           <div class="btn no-doc">
+            <span class="icon">🎃</span> Октябрь – документа пока нет
+          </div>
+          <div class="btn no-doc">
+            <span class="icon">🍁</span> Ноябрь – документа пока нет
+          </div>
+          <div class="btn no-doc">
+            <span class="icon">🎄</span> Декабрь – документа пока нет
+          </div>
+        </div>
+      </section>
     </div>
-    <div class="btn-group month-group">
-       <div class="btn no-doc">
-        <span class="icon">❌</span> Октябрь – документа пока нет
-      </div>
-      <div class="btn no-doc">
-        <span class="icon">❌</span> Ноябрь – документа пока нет
-      </div>
-      <div class="btn no-doc">
-        <span class="icon">❌</span> Декабрь – документа пока нет
-      </div>
-    </div>
-  </section>
-</div>
-
-    <!-- SIDEBAR: дополнительная навигация -->
-    <aside class="sidebar">
-      <h3 class="sidebar-title">Дополнительные планы</h3>
-      <div class="btn-group sidebar-group">
-        <a href="https://disk.yandex.ru/i/_0zS0ZMr2tAchg" target="_blank" class="btn sidebar-btn">🔧 План мероприятий по Волновахе</a>
-      </div>      
-      <div class="btn-group sidebar-group">
-        <a href="https://disk.yandex.ru/i/YH_ANjy5xBBBoA" target="_blank" class="btn sidebar-btn">🔧 Ночь искусств</a>
-      </div>
-      <div class="btn-group sidebar-group">
-        <a href="https://disk.yandex.ru/i/MVh_5GZz92JtTQ" target="_blank" class="btn sidebar-btn">🔧 День народного единства</a>
-      </div>
-      <div class="btn-group sidebar-group">
-        <a href="https://disk.yandex.ru/i/MqMzmoryKML2lQ" target="_blank" class="btn sidebar-btn">🔧 Предложения День оленевода</a>
-      </div>
-    </aside>
   </div>
+
+  <!-- SIDEBAR: дополнительная навигация -->
+  <aside class="sidebar">
+    <h3 class="sidebar-title">🎁 Дополнительные планы</h3>
+    <div class="btn-group sidebar-group">
+      <a href="https://disk.yandex.ru/i/_0zS0ZMr2tAchg" target="_blank" class="btn sidebar-btn">🎄 План мероприятий по Волновахе🎅</a>
+    </div>      
+    <div class="btn-group sidebar-group">
+      <a href="https://disk.yandex.ru/i/lVlWjC6uyII-1g" target="_blank" class="btn sidebar-btn">🎅График новогодних утренников🎄</a>
+    </div>
+  </aside>
+</div>
 
   <!-- Скрипт для открытия/скрытия секций кварталов -->
   <script>
@@ -248,6 +289,17 @@
       btn.addEventListener('click', () => {
         document.getElementById(btn.dataset.target).classList.toggle('hidden');
       });
+    });
+    
+    // Запускаем снежинки
+    document.addEventListener('DOMContentLoaded', function() {
+      // Создаем снежинки каждые 300ms
+      setInterval(createSnowflake, 300);
+      
+      // Сразу создаем несколько снежинок
+      for (let i = 0; i < 20; i++) {
+        setTimeout(() => createSnowflake(), i * 100);
+      }
     });
   </script>
 </body>

@@ -1,24 +1,60 @@
-/* ========== БАЗОВЫЕ СТИЛИ ========== */
+/* ========== БАЗОВЫЕ СТИЛИ С НОВОГОДНЕЙ ТЕМАТИКОЙ ========== */
 body {
   margin: 0;
   padding: 20px;
   text-align: center;
   font-family: Arial, sans-serif;
-  color: #2a2a2a;
-  background: #f7f7f7;
+  color: #1a3c34; /* темно-зеленый цвет текста */
+  background: linear-gradient(135deg, #e6f7ff 0%, #f0fff0 100%); /* зимний градиент */
+  min-height: 100vh;
+  position: relative;
 }
 
-/* Заголовки */
+/* Добавим снежинки на фон */
+body::before {
+  content: "❄❄❄";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 24px;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: -1;
+  animation: snow 20s linear infinite;
+}
+
+@keyframes snow {
+  0% { transform: translateY(-100px) rotate(0deg); }
+  100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+/* Заголовки с праздничным оформлением */
 h1 {
   margin: 0.2em 0;
-  font-family: 'Times New Roman', serif;
-  font-size: 2.5em;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  font-family: 'Georgia', serif;
+  font-size: 2.8em;
+  color: #c41e3a; /* праздничный красный */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+  display: inline-block;
 }
+
+h1::after {
+  content: "🎄";
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2em;
+}
+
 .subtitle {
   margin-bottom: 0.5em;
-  font-size: 1.2em;
-  color: #542427;
+  font-size: 1.3em;
+  color: #1a5c36; /* темно-зеленый */
+  font-weight: bold;
 }
 
 /* Вводный текст */
@@ -27,43 +63,83 @@ h1 {
   margin: 0 auto;
   font-size: 1em;
   line-height: 1.6;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #c41e3a;
 }
 
-/* ========== КАРТОЧКИ (BUTTON-BLOCK) ========== */
+/* ========== КАРТОЧКИ С НОВОГОДНИМ ДИЗАЙНОМ ========== */
 .rounded-block,
 .button-block,
 .sidebar {
-  background: #fff;
+  background: linear-gradient(145deg, #ffffff, #f8f8f8);
   padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(196, 30, 58, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-bottom: 30px; /* добавили отступ снизу у всех блоков кнопок */
+  margin-bottom: 30px;
+  border: 2px solid transparent;
+  background-image: 
+    linear-gradient(white, white),
+    linear-gradient(45deg, #c41e3a 0%, #1a5c36 50%, #c41e3a 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
 }
 
 /* Особый стиль для шапки */
 .rounded-block {
-  background: linear-gradient(135deg, #fde7e9, #fff);
-  border-radius: 12px;
+  background: linear-gradient(135deg, #fff5f5, #f0fff8);
+  border-radius: 15px;
   margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.rounded-block::before {
+  content: "✨🎁🎉";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  opacity: 0.3;
+  font-size: 1.5em;
 }
 
 /* Hover-эффект для всех карточек */
 .button-block:hover,
 .sidebar:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(196, 30, 58, 0.2);
 }
 
 /* Заголовок секций */
 .section-title,
 .sidebar-title {
-  margin-bottom: 15px;
-  font-size: 1.4em;
-  color: #542427;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  color: #1a5c36;
+  position: relative;
+  display: inline-block;
+  padding: 0 20px;
 }
-.section-title { cursor: pointer; }
-.sidebar-title { text-align: center; }
+
+.section-title::before,
+.sidebar-title::before {
+  content: "❄";
+  position: absolute;
+  left: -10px;
+}
+
+.section-title::after {
+  content: "❄";
+  position: absolute;
+  right: -10px;
+}
+
+.sidebar-title::before {
+  content: "🎄";
+  left: -10px;
+}
 
 /* Кнопки и группы кнопок */
 .btn-group {
@@ -71,38 +147,85 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-/* Общий стиль для кнопок */
+/* Общий стиль для кнопок с новогодними цветами */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 120px;
-  padding: 12px 20px;
-  background: #72181d;
-  color: #fff;
+  min-width: 140px;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #c41e3a 0%, #e63946 100%);
+  color: white;
   text-decoration: none;
-  border-radius: 6px;
-  box-shadow: inset 0 -2px 0 rgba(0,0,0,0.2);
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(196, 30, 58, 0.3);
+  transition: all 0.3s ease;
+  border: none;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
 }
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
 .btn:hover {
-  background: #8c2624;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  background: linear-gradient(135deg, #1a5c36 0%, #2e8b57 100%);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(26, 92, 54, 0.4);
 }
+
 .btn:active {
-  background: #542427;
-  transform: translateY(0);
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Специальные кнопки */
+.correction-btn {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+  font-size: 1.1em;
+  padding: 16px 28px;
+}
+
+.correction-btn:hover {
+  background: linear-gradient(135deg, #1a5c36 0%, #2e8b57 100%);
+}
+
+.full-quarter-btn {
+  background: linear-gradient(135deg, #1a5c36 0%, #2e8b57 100%);
+}
+
+.full-quarter-btn:hover {
+  background: linear-gradient(135deg, #c41e3a 0%, #e63946 100%);
 }
 
 /* Иконка в кнопке */
 .icon {
-  margin-right: 8px;
-  font-size: 1.1em;
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+/* Кнопки тогглы */
+.toggle {
+  background: linear-gradient(135deg, #4a90e2 0%, #357ae8 100%);
+}
+
+.toggle:hover {
+  background: linear-gradient(135deg, #1a5c36 0%, #2e8b57 100%);
 }
 
 /* Скрытый блок */
@@ -113,36 +236,87 @@ h1 {
 /* ========== СТРАНИЦА: layout main + sidebar ========== */
 .main-content {
   display: flex;
-  gap: 20px;
+  gap: 25px;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
 }
 
-/* Sidebar фиксированной ширины */
+/* Sidebar с праздничным оформлением */
 .sidebar {
-  width: 260px;
+  width: 280px;
+  background: linear-gradient(145deg, #f8fff8, #ffffff);
+  position: relative;
+}
+
+.sidebar::after {
+  content: "🎅";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 2em;
+  opacity: 0.2;
+}
+
+.sidebar-btn {
+  background: linear-gradient(135deg, #4a90e2 0%, #357ae8 100%);
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: left;
+  justify-content: flex-start;
+  padding-left: 20px;
+}
+
+.sidebar-btn:hover {
+  background: linear-gradient(135deg, #1a5c36 0%, #2e8b57 100%);
 }
 
 /* Отображение отсутствующего документа */
 .no-doc {
-  background: #e0e0e0;        /* светло-серый фон */
-  color: #555;               /* текст чуть темнее */
-  cursor: default;           /* не кликабельно */
-  box-shadow: none;          /* без тени */
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+  color: #888;
+  cursor: default;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border: 1px dashed #ccc;
 }
 
 .no-doc .icon {
-  font-size: 1.1em;
-  margin-right: 8px;
+  color: #ff6b6b;
 }
 
-/* Убираем hover/active эффекты для .no-doc */
 .no-doc:hover,
 .no-doc:active {
-  background: #e0e0e0;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
   transform: none;
-  box-shadow: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ========== НОВОГОДНЯЯ РАМКА ========== */
+.bordered-section {
+    position: relative;
+    padding: 25px;
+    margin-bottom: 35px;
+    background: linear-gradient(145deg, #ffffff, #f8fff8);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(196, 30, 58, 0.15);
+    border: 2px solid transparent;
+    background-image: 
+        linear-gradient(white, white),
+        linear-gradient(45deg, #c41e3a 0%, #1a5c36 50%, #c41e3a 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.bordered-section::before {
+    content: "✨";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5em;
+    background: white;
+    padding: 0 10px;
+    color: #c41e3a;
 }
 
 /* ========== АДАПТИВ ========== */
@@ -163,35 +337,92 @@ h1 {
     overflow-x: auto;
     justify-content: flex-start;
   }
-  /* Каждая колонка (секции и сайдбар) по 80% ширины экрана */
+  
   .main-sections,
   .sidebar {
     flex: 0 0 auto;
-    width: 80vw;
-    margin-right: 10px;
+    width: 85vw;
+    margin-right: 15px;
+  }
+  
+  h1 {
+    font-size: 2em;
+  }
+  
+  .btn {
+    min-width: 120px;
+    padding: 12px 16px;
+    font-size: 0.9em;
   }
 }
 
-/* ========== НОВЫЙ КЛАСС ДЛЯ РАМКИ ========== */
-.bordered-section {
-    position: relative; /* Устанавливаем позицию для псевдоэлемента */
-    padding: 20px; /* Отступы внутри рамки */
-    margin-bottom: 30px; /* Отступ снизу */
-    background: #fff; /* Цвет фона */
-    border-radius: 10px; /* Закругление углов */
-    box-shadow: 0 0 10px rgba(84, 36, 39, 0.2); /* Легкая тень */
+/* Добавим анимацию для праздничного настроения */
+@keyframes sparkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
 }
 
-.bordered-section::before {
-    content: ""; /* Создаем пустой контент для псевдоэлемента */
-    position: absolute; /* Абсолютное позиционирование */
-    top: -5px; /* Сдвигаем вверх */
-    left: -5px; /* Сдвигаем влево */
-    right: -5px; /* Сдвигаем вправо */
-    bottom: -5px; /* Сдвигаем вниз */
-    background: rgba(84, 36, 39, 0.1); /* Полупрозрачный цвет для мягкой тени */
-    border-radius: 10px; /* Закругление углов */
-    z-index: -1; /* Помещаем псевдоэлемент под основной контент */
-    filter: blur(5px); /* Размытие для мягкости */
+h1, .section-title {
+  animation: sparkle 2s infinite;
 }
-  
+
+/* ========== НОВЫЙ СТИЛЬ ДЛЯ ЛЕВОЙ КОЛОНКИ ========== */
+.main-column {
+  flex: 1;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Обновляем .main-content */
+.main-content {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap; /* меняем с wrap на nowrap */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Обновляем .sidebar */
+.sidebar {
+  width: 280px;
+  flex-shrink: 0; /* предотвращает сжатие */
+  align-self: flex-start;
+  position: sticky;
+  top: 20px;
+}
+
+/* Обновляем адаптив для мобильных */
+@media (max-width: 900px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .main-column {
+    width: 100%;
+    max-width: 100%;
+  }
+  .sidebar {
+    width: 100%;
+    max-width: 800px;
+    position: static;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+  .main-column,
+  .sidebar {
+    flex: 0 0 auto;
+    width: 85vw;
+    margin-right: 15px;
+  }
+}
