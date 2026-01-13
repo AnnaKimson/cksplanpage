@@ -4,13 +4,12 @@ body {
   padding: 20px;
   text-align: center;
   font-family: Arial, sans-serif;
-  color: #1a3c34; /* темно-зеленый цвет текста */
-  background: linear-gradient(135deg, #e6f7ff 0%, #f0fff0 100%); /* зимний градиент */
+  color: #1a3c34;
+  background: linear-gradient(135deg, #e6f7ff 0%, #f0fff0 100%);
   min-height: 100vh;
   position: relative;
 }
 
-/* Добавим снежинки на фон */
 body::before {
   content: "❄❄❄";
   position: fixed;
@@ -30,12 +29,11 @@ body::before {
   100% { transform: translateY(100vh) rotate(360deg); }
 }
 
-/* Заголовки с праздничным оформлением */
 h1 {
   margin: 0.2em 0;
   font-family: 'Georgia', serif;
   font-size: 2.8em;
-  color: #c41e3a; /* праздничный красный */
+  color: #c41e3a;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
   position: relative;
   display: inline-block;
@@ -53,11 +51,10 @@ h1::after {
 .subtitle {
   margin-bottom: 0.5em;
   font-size: 1.3em;
-  color: #1a5c36; /* темно-зеленый */
+  color: #1a5c36;
   font-weight: bold;
 }
 
-/* Вводный текст */
 .intro {
   max-width: 600px;
   margin: 0 auto;
@@ -69,7 +66,6 @@ h1::after {
   border-left: 4px solid #c41e3a;
 }
 
-/* ========== КАРТОЧКИ С НОВОГОДНИМ ДИЗАЙНОМ ========== */
 .rounded-block,
 .button-block,
 .sidebar {
@@ -87,7 +83,6 @@ h1::after {
   background-clip: padding-box, border-box;
 }
 
-/* Особый стиль для шапки */
 .rounded-block {
   background: linear-gradient(135deg, #fff5f5, #f0fff8);
   border-radius: 15px;
@@ -105,14 +100,12 @@ h1::after {
   font-size: 1.5em;
 }
 
-/* Hover-эффект для всех карточек */
 .button-block:hover,
 .sidebar:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(196, 30, 58, 0.2);
 }
 
-/* Заголовок секций */
 .section-title,
 .sidebar-title {
   margin-bottom: 20px;
@@ -141,7 +134,6 @@ h1::after {
   left: -10px;
 }
 
-/* Кнопки и группы кнопок */
 .btn-group {
   display: flex;
   flex-wrap: wrap;
@@ -150,7 +142,6 @@ h1::after {
   margin-bottom: 20px;
 }
 
-/* Общий стиль для кнопок с новогодними цветами */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -194,7 +185,6 @@ h1::after {
   transform: translateY(1px) scale(0.98);
 }
 
-/* Специальные кнопки */
 .correction-btn {
   background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
   font-size: 1.1em;
@@ -213,13 +203,11 @@ h1::after {
   background: linear-gradient(135deg, #c41e3a 0%, #e63946 100%);
 }
 
-/* Иконка в кнопке */
 .icon {
   margin-right: 10px;
   font-size: 1.2em;
 }
 
-/* Кнопки тогглы */
 .toggle {
   background: linear-gradient(135deg, #4a90e2 0%, #357ae8 100%);
 }
@@ -228,12 +216,10 @@ h1::after {
   background: linear-gradient(135deg, #1a5c36 0%, #2e8b57 100%);
 }
 
-/* Скрытый блок */
 .hidden {
   display: none;
 }
 
-/* ========== СТРАНИЦА: layout main + sidebar ========== */
 .main-content {
   display: flex;
   gap: 25px;
@@ -242,7 +228,6 @@ h1::after {
   flex-wrap: wrap;
 }
 
-/* Sidebar с праздничным оформлением */
 .sidebar {
   width: 280px;
   background: linear-gradient(145deg, #f8fff8, #ffffff);
@@ -271,7 +256,6 @@ h1::after {
   background: linear-gradient(135deg, #1a5c36 0%, #2e8b57 100%);
 }
 
-/* Отображение отсутствующего документа */
 .no-doc {
   background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
   color: #888;
@@ -291,7 +275,6 @@ h1::after {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* ========== НОВОГОДНЯЯ РАМКА ========== */
 .bordered-section {
     position: relative;
     padding: 25px;
@@ -318,7 +301,6 @@ h1::after {
     color: #c41e3a;
 }
 
-/* ========== АДАПТИВ ========== */
 @media (max-width: 900px) {
   .main-content {
     flex-direction: column;
@@ -355,17 +337,12 @@ h1::after {
   }
 }
 
-/* Добавим анимацию для праздничного настроения */
 @keyframes sparkle {
   0%, 100% { opacity: 0.3; }
   50% { opacity: 1; }
 }
 
-h1, .section-title {
-  animation: sparkle 2s infinite;
-}
 
-/* ========== НОВЫЙ СТИЛЬ ДЛЯ ЛЕВОЙ КОЛОНКИ ========== */
 .main-column {
   flex: 1;
   max-width: 800px;
@@ -374,27 +351,24 @@ h1, .section-title {
   gap: 20px;
 }
 
-/* Обновляем .main-content */
 .main-content {
   display: flex;
   gap: 20px;
   justify-content: center;
   align-items: flex-start;
-  flex-wrap: nowrap; /* меняем с wrap на nowrap */
+  flex-wrap: nowrap;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Обновляем .sidebar */
 .sidebar {
   width: 280px;
-  flex-shrink: 0; /* предотвращает сжатие */
+  flex-shrink: 0;
   align-self: flex-start;
   position: sticky;
   top: 20px;
 }
 
-/* Обновляем адаптив для мобильных */
 @media (max-width: 900px) {
   .main-content {
     flex-direction: column;
@@ -424,4 +398,77 @@ h1, .section-title {
     width: 85vw;
     margin-right: 15px;
   }
+}
+
+/* ========== НОВЫЕ СТИЛИ ДЛЯ АКТУАЛЬНЫХ И СТАРЫХ БЛОКОВ ========== */
+.current-year {
+    border-width: 3px !important;
+    box-shadow: 0 0 25px rgba(196, 30, 58, 0.25) !important;
+}
+
+.current-year .section-title {
+    color: #c41e3a;
+    font-size: 1.6em;
+}
+
+.current-year::before {
+    content: "✨ АКТУАЛЬНО ✨";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1em;
+    background: linear-gradient(135deg, #c41e3a 0%, #1a5c36 100%);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.previous-year {
+    opacity: 0.7;
+    filter: saturate(0.8);
+    transition: all 0.3s ease;
+}
+
+.previous-year:hover {
+    opacity: 0.9;
+    filter: saturate(1);
+}
+
+.previous-year .section-title {
+    color: #666;
+}
+
+.previous-year .btn {
+    background: linear-gradient(135deg, #888 0%, #aaa 100%);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.previous-year .btn:hover {
+    background: linear-gradient(135deg, #666 0%, #888 100%);
+}
+
+.previous-year .full-quarter-btn {
+    background: linear-gradient(135deg, #1a5c36 0%, #2e8b57 100%);
+}
+
+.previous-year .full-quarter-btn:hover {
+    background: linear-gradient(135deg, #0f3d22 0%, #1a5c36 100%);
+}
+
+.main-sections.bordered-section {
+    position: relative;
+    padding: 25px;
+    margin-bottom: 35px;
+    background: linear-gradient(145deg, #ffffff, #f8fff8);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(196, 30, 58, 0.15);
+    border: 2px solid transparent;
+    background-image: 
+        linear-gradient(white, white),
+        linear-gradient(45deg, #c41e3a 0%, #1a5c36 50%, #c41e3a 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
 }
