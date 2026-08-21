@@ -285,7 +285,7 @@ h1::after {
   font-size: 1.2em;
 }
 
-/* ========== АКТУАЛЬНЫЕ И ПРЕДЫДУЩИЕ БЛОКИ ========== */
+/* ========== АКТУАЛЬНЫЙ БЛОК (2026) ========== */
 .current-year {
   border: 2px solid var(--burgundy);
   box-shadow: 0 0 25px rgba(139, 0, 0, 0.15);
@@ -316,6 +316,38 @@ h1::after {
   box-shadow: 0 3px 10px rgba(212, 175, 55, 0.3);
 }
 
+/* ========== ПЕРСПЕКТИВНЫЙ БЛОК (2027) ========== */
+.future-year {
+  border: 2px solid var(--blue);
+  box-shadow: 0 0 25px rgba(30, 58, 138, 0.15);
+  position: relative;
+  margin-top: 25px;
+  padding-top: 30px;
+}
+
+.future-year .section-title {
+  color: var(--blue);
+  margin-top: 5px;
+}
+
+.future-year::before {
+  content: "★ ПЕРСПЕКТИВНЫЕ ПЛАНЫ ★";
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.85em;
+  background: var(--blue);
+  color: white;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-weight: bold;
+  z-index: 1;
+  white-space: nowrap;
+  box-shadow: 0 3px 10px rgba(30, 58, 138, 0.3);
+}
+
+/* ========== ПРОШЛЫЙ БЛОК (уже не используется) ========== */
 .previous-year {
   opacity: 0.8;
   border: 1px solid rgba(139, 0, 0, 0.1);
@@ -399,12 +431,14 @@ h1::after {
     font-size: 0.95em;
   }
   
-  .current-year {
+  .current-year,
+  .future-year {
     margin-top: 20px;
     padding-top: 25px;
   }
   
-  .current-year::before {
+  .current-year::before,
+  .future-year::before {
     font-size: 0.8em;
     padding: 5px 15px;
     top: -13px;
@@ -460,12 +494,14 @@ h1::after {
     padding: 15px;
   }
   
-  .current-year {
+  .current-year,
+  .future-year {
     margin-top: 18px;
     padding-top: 22px;
   }
   
-  .current-year::before {
+  .current-year::before,
+  .future-year::before {
     font-size: 0.75em;
     padding: 4px 12px;
     top: -11px;
@@ -498,7 +534,8 @@ h1::after {
     align-items: stretch;
   }
   
-  .current-year::before {
+  .current-year::before,
+  .future-year::before {
     font-size: 0.7em;
     padding: 3px 10px;
     top: -10px;
