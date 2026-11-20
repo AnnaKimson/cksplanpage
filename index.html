@@ -16,6 +16,7 @@
   <header class="rounded-block">
     <h1>ПЛАНИРОВАНИЕ МЕРОПРИЯТИЙ</h1>
     <h2 class="subtitle">МАУК "ЦКС"</h2>
+    <!--<div class="holiday-greeting" aria-label="Новогоднее оформление">✦ С наступающим Новым годом! ✦</div>-->
     <p class="intro">
       Уважаемые коллеги, для просмотра необходимого Вам плана нажмите на соответствующую кнопку.
       Документ откроется в новой вкладке в режиме просмотра, редактировать его нельзя, но можно скачать и распечатать.
@@ -236,5 +237,34 @@
       });
     });
   </script>
+
+  <!-- Напоминание об обновлении страницы -->
+  <div id="refresh-reminder" class="refresh-reminder" role="alertdialog"
+       aria-modal="true" aria-labelledby="refresh-reminder-message" hidden>
+    <div class="refresh-reminder__card">
+      <img class="refresh-reminder__owl" src="sova_transparent.webp" alt="Милая сова" />
+      <p id="refresh-reminder-message" class="refresh-reminder__message">
+        Для корректной работы обновите страницу
+      </p>
+      <button type="button" class="refresh-reminder__button"
+              onclick="window.location.reload()">
+        Обновить страницу
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // ТЕСТ: 1 минута. Для рабочего режима замените на:
+    // const REMINDER_DELAY_MS = 2 * 60 * 60 * 1000; // 2 часа
+    const REMINDER_DELAY_MS = 1 * 60 * 1000;
+
+    window.setTimeout(() => {
+      const reminder = document.getElementById('refresh-reminder');
+      if (reminder) {
+        reminder.hidden = false;
+      }
+    }, REMINDER_DELAY_MS);
+  </script>
+
 </body>
 </html>
